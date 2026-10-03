@@ -4,6 +4,7 @@
 using std::cout;
 using std::string;
 using std::to_string;
+using std::stoi;
 
 void pyramid(int n, bool up) 
 {
@@ -60,35 +61,27 @@ void pyramid(int n, bool up)
                 }
             }
         }
+
         cout << "\n";
     }
 }
 
-int main(int argc, char* argv[]) {
-    if (argc != 3) {
+int main(int argc, char* argv[]) 
+{
+    if (argc != 3) 
+    {
         cout << "Usage: ./pyramid number up/down\n";
         return 1;
     }
-
-    string text = argv[1];
-    int n = 0;
-
-    for (int i = 0; i < text.size(); i++) {
-        if (text[i] < '0' || text[i] > '9') {
-            cout << "Enter a whole number.\n";
-            return 1;
-        }
-
-    }
-
+    int n = stoi(argv[1]);
     string dir = argv[2];
 
-    if (dir == "up") {
+    if (dir == "up") 
+    {
         pyramid(n, true);
-    } else if (dir == "down") {
+    } 
+    else if (dir == "down") 
+    {
         pyramid(n, false);
-    } else {
-        cout << "Choose up or down.\n";
-        return 1;
-    }
+    } 
 }
